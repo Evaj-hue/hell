@@ -48,19 +48,19 @@ $user = $_SESSION['user'];
                     </a>
                 </li>
                 <li class="navList">
-                    <a href="#">
+                    <a href="manage_roles.php" id="manageProductsLink">
                         <ion-icon name="analytics-outline"></ion-icon>
                         <span class="links">Role Management</span>
                     </a>
                 </li>
                 <li class="navList">
-                    <a href="#">
+                    <a href="manage_products.php">
                         <ion-icon name="pricetags-outline"></ion-icon>
                         <span class="links">Product Management</span>
                     </a>
                 </li>
                 <li class="navList">
-                    <a href="#">
+                    <a href="activity_log.php">
                         <ion-icon name="chatbubbles-outline"></ion-icon>
                         <span class="links">Reports</span>
                     </a>
@@ -167,20 +167,17 @@ $user = $_SESSION['user'];
                     <span class="text">Product Activity Log</span>
                 </div>
          <div class="table-design">
-             <!-- Search Bar -->
-        <div class="search-bar">
-            <input type="text" id="search-input" placeholder="Search..." onkeyup="searchTable()">
-        </div>
+       
 
                      <!-- Activity Log Table -->
-         <table id="activityLogTable" class="product-table">
+         <table id="example" class="display" style="width:100%">
             <thead>
                 <tr>
-                    <th onclick="sortTable(0)">ID</th>
-                    <th onclick="sortTable(1)">User</th>
-                    <th onclick="sortTable(2)">Action</th>
-                    <th onclick="sortTable(3)">Details</th>
-                    <th onclick="sortTable(4)">Timestamp</th>
+                    <th >ID</th>
+                    <th >User</th>
+                    <th >Action</th>
+                    <th >Details</th>
+                    <th >Timestamp</th>
                 </tr>
             </thead>
             <tbody id="table-body">
@@ -208,12 +205,7 @@ $user = $_SESSION['user'];
                 <?php endwhile; ?>
             </tbody>
         </table>
-         <!-- Pagination Controls -->
-         <div class="pagination">
-            <button id="prev-btn" onclick="changePage('prev')">Previous</button>
-            <button id="next-btn" onclick="changePage('next')">Next</button>
-            <span id="page-number">Page 1</span>
-        </div>
+        
         </div>
     </div>
           

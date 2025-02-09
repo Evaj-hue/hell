@@ -4,12 +4,14 @@ include 'db.php';
 // Function to log activity
 function logActivity($userId, $action, $details) {
     global $conn;
-    $sql = "INSERT INTO activity_log (user_id, action, details) VALUES (?, ?, ?)";
+    // Fetch the username from the session
+    $username = $_SESSION['user']['username'];
+
+    $sql = "INSERT INTO activity_log (user_id, username, action, details) VALUES (?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("iss", $userId, $action, $details);
+    $stmt->bind_param("isss", $userId, $username, $action, $details);
     $stmt->execute();
 }
-
 // Check if the user is logged in and has a valid role
 if (!isset($_SESSION['user']) || !in_array($_SESSION['user']['role'], ['admin', 'moderator'])) {
     header('Location: index.php');
